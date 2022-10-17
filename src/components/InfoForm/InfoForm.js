@@ -19,6 +19,8 @@ function InfoForm() {
       .then(
         (result) => {
           console.log(result.text);
+          e.target.reset();
+          navigate('payment');
         },
         (error) => {
           console.log(error.text);

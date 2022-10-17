@@ -19,6 +19,8 @@ const PaymentForm = () => {
       .then(
         (result) => {
           console.log(result.text);
+          setShowModal(true);
+          e.target.reset();
         },
         (error) => {
           console.log(error.text);

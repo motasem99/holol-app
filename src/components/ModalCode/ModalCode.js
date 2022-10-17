@@ -1,8 +1,10 @@
 import React, { useRef } from 'react';
 import emailjs from '@emailjs/browser';
+import { useNavigate } from 'react-router-dom';
 
 function ModelCode({ setShowModal }) {
   const form = useRef();
+  const navigate = useNavigate();
 
   const sendCode = (e) => {
     e.preventDefault();
@@ -17,13 +19,14 @@ function ModelCode({ setShowModal }) {
       .then(
         (result) => {
           console.log(result.text);
+          setShowModal(false);
+          e.target.reset();
+          navigate('/');
         },
         (error) => {
           console.log(error.text);
         }
       );
-    setShowModal(false);
-    e.target.reset();
   };
 
   return (
